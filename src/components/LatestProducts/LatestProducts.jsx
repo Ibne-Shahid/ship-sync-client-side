@@ -11,6 +11,9 @@ const LatestProducts = ({productsPromise}) => {
         <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {products.map((product)=><Card key={product._id} product={product}></Card>)}
         </div>
+        <div className='text-center mt-8'>
+            <button className='btn btn-soft btn-accent'>Show All</button>
+        </div>
     </div>
   )
 }

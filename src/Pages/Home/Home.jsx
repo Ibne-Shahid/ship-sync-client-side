@@ -1,5 +1,7 @@
 import React, { Suspense } from 'react'
 import LatestProducts from '../../components/LatestProducts/LatestProducts'
+import HowItWorks from '../../components/HowItWorks/HowItWorks'
+import Reviews from '../../components/Reviews/Reviews'
 
 const productsPromise = fetch('http://localhost:3000/latestProducts').then(res=>res.json())
 
@@ -21,6 +23,10 @@ const Home = () => {
       }>
         <LatestProducts productsPromise={productsPromise} />
       </Suspense>
+
+      <HowItWorks></HowItWorks>
+
+      <Reviews></Reviews>
         
     </div>
   )
