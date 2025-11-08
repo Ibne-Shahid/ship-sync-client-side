@@ -1,14 +1,40 @@
-import React, { useState } from 'react'
+import React, { use, useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link } from 'react-router'
+import { AuthContext } from '../../Provider/AuthProvider'
+import { toast } from 'react-toastify'
 
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false)
+    const {logIn} = use(AuthContext)
 
     const togglePassword = (e) => {
         e.preventDefault()
         setShowPassword(!showPassword)
+    }
+
+    const handleLogIn = (e)=>{
+        e.preventDefault()
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+        
+
+        logIn(email, password)
+        .then((result)=>{
+            const user = result.user
+            form.reset()
+
+            toast.success(`Login Successful. Welcome ${user?.displayName}`)
+        })
+        .catch((err)=>{
+            const errorMessage = err.message
+
+            toast.error(errorMessage)
+        })
     }
 
     return (
@@ -16,7 +42,7 @@ const Login = () => {
 
 
             <div className='fieldset bg-base-300 border-base-300 rounded-box w-xs border p-4'>
-                <form>
+                <form onSubmit={handleLogIn}>
                     <h1 className='text-2xl font-bold text-center mb-5'>Login Your Account</h1>
 
                     <label className="label">Email Adress</label>
