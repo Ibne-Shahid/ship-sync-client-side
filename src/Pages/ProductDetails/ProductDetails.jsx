@@ -1,12 +1,14 @@
 import React, { use, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router'
 import { AuthContext } from '../../Provider/AuthProvider'
+import { toast } from 'react-toastify'
 
 const ProductDetails = () => {
 
     const { id } = useParams()
     const { user } = use(AuthContext)
     const [products, setProducts] = useState([])
+    const [importQuantity, setImportQuantity] = useState(null)
     const importModalRef = useRef(null)
 
     useEffect(() => {
@@ -21,6 +23,60 @@ const ProductDetails = () => {
 
     const handleModal = () => {
         importModalRef.current.showModal()
+    }
+
+    const handleImportSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const quantity = form.quantity.value
+
+        const importProduct = {
+            product: product?._id,
+            importer_name: name,
+            importer_email: email,
+            importing_quantity: quantity
+        }
+
+        fetch('http://localhost:3000/imports', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(importProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('Product imported successfully!')
+
+                const newQuantity = product?.available_quantity - importQuantity
+
+                fetch(`http://localhost:3000/products/${product?._id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ available_quantity: newQuantity })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        setProducts(prev =>
+                            prev.map(p =>
+                                p?._id === product?._id
+                                    ? { ...p, available_quantity: newQuantity }
+                                    : p
+                            )
+                        )
+                    })
+
+                setImportQuantity("")
+                importModalRef.current.close()
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
+
     }
 
     if (!product) {
@@ -38,35 +94,35 @@ const ProductDetails = () => {
 
                     <div className="flex-1 flex justify-center items-center">
                         <img
-                            src={product.product_image}
-                            alt={product.product_name}
+                            src={product?.product_image}
+                            alt={product?.product_name}
                             className="rounded-xl w-full max-w-sm object-cover shadow-md"
                         />
                     </div>
 
                     <div className="flex-1 space-y-4">
-                        <h1 className="text-3xl font-bold text-gray-800">{product.product_name}</h1>
-                        <p className="text-gray-600">{product.description}</p>
+                        <h1 className="text-3xl font-bold text-gray-800">{product?.product_name}</h1>
+                        <p className="text-gray-600">{product?.description}</p>
 
                         <div className="grid grid-cols-2 gap-4 mt-4">
                             <div>
                                 <p className="text-gray-500">Price:</p>
-                                <p className="text-xl font-semibold text-blue-600">{product.price}৳</p>
+                                <p className="text-xl font-semibold text-blue-600">{product?.price}৳</p>
                             </div>
 
                             <div>
                                 <p className="text-gray-500">Origin:</p>
-                                <p className="font-semibold">{product.origin_country}</p>
+                                <p className="font-semibold">{product?.origin_country}</p>
                             </div>
 
                             <div>
                                 <p className="text-gray-500">Rating:</p>
-                                <p className="font-semibold">{product.rating} ⭐</p>
+                                <p className="font-semibold">{product?.rating} ⭐</p>
                             </div>
 
                             <div>
                                 <p className="text-gray-500">Available Quantity:</p>
-                                <p className="font-semibold">{product.available_quantity}</p>
+                                <p className="font-semibold">{product?.available_quantity}</p>
                             </div>
                         </div>
 
@@ -78,26 +134,37 @@ const ProductDetails = () => {
                             <dialog ref={importModalRef} className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">
                                     <h3 className="font-bold text-info text-lg">Add to Import</h3>
-                                    
-                                    <form>
+
+                                    <form onSubmit={handleImportSubmit}>
                                         <fieldset className="fieldset">
                                             <label className="label">Name</label>
                                             <input type="text" name='name' className="input" readOnly defaultValue={user?.displayName} />
-                                            {/* email */}
+
                                             <label className="label">Email</label>
                                             <input type="email" className="input" name='email' readOnly defaultValue={user?.email} />
-                                            {/* bid amount */}
+
                                             <label className="label">Quantity</label>
-                                            <input type="text" name='quantiry' className="input"
+                                            <input type="number" name='quantity' className="input"
                                                 placeholder='Your Quantity'
+                                                value={importQuantity}
+                                                onChange={(e) => {
+                                                    const value = e.target.value
+                                                    setImportQuantity(value === "" ? null : parseInt(value))
+                                                }}
                                             />
-                                            <button className="btn btn-accent mt-4">Import Now</button>
+                                            {importQuantity > product.available_quantity && (
+                                                <p className="text-red-500 text-sm mt-1">
+                                                    Quantity cannot exceed available stock ({product.available_quantity})
+                                                </p>
+                                            )}
+                                            <button disabled={importQuantity > product.available_quantity || importQuantity <= 0 || product?.available_quantity===0} type='submit' className="btn btn-accent mt-4">Submit</button>
+
                                         </fieldset>
                                     </form>
 
                                     <div className="modal-action">
                                         <form method="dialog">
-                                            
+
                                             <button className="btn">Cancel</button>
                                         </form>
                                     </div>
