@@ -81,11 +81,10 @@ const AllProducts = () => {
                 </div>
 
                 <div className="max-w-6xl mx-auto px-6 mb-4 text-gray-600">
-                    {loading ? (
-                        <p>Loading products...</p>
-                    ) : (
+                    {loading ? 
+                        <p>Loading products...</p> : 
                         <>Showing <span className="font-semibold">{filteredProducts.length}</span> products found</>
-                    )}
+                    }
                 </div>
 
                 {loading ?
