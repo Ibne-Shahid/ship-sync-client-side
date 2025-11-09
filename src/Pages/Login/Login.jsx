@@ -79,7 +79,7 @@ const Login = () => {
 
             <div className='fieldset bg-base-300 border-base-300 rounded-box w-xs border p-4'>
                 <form onSubmit={handleLogIn}>
-                    <h1 className='text-2xl font-bold text-center mb-5'>Login Your Account</h1>
+                    <h1 className='text-2xl font-bold text-info text-center mb-5'>Login Your Account</h1>
 
                     <label className="label">Email Adress</label>
                     <input ref={emailRef} type="email" name="email" className="input" placeholder="Email" required />

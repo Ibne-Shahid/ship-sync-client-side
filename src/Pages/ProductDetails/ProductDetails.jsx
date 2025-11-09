@@ -125,9 +125,12 @@ const ProductDetails = () => {
                         </div>
 
                         <div>
-                            <button onClick={handleModal} className="mt-6 btn btn-accent">
-                                Import Now
-                            </button>
+                            <div>
+                                <button disabled={user?.email === product?.exporter_email} onClick={handleModal} className="mt-6 btn btn-accent">
+                                    Import Now
+                                </button>
+                                {user?.email === product?.exporter_email? <p className='text-xs text-gray-600'>*(Your Product)</p> : ""}
+                            </div>
 
                             <dialog ref={importModalRef} className="modal modal-bottom sm:modal-middle">
                                 <div className="modal-box">

@@ -44,9 +44,7 @@ const AllProducts = () => {
         filteredProducts.sort((a, b) => a.price - b.price)
     } else if (sort === "high-low") {
         filteredProducts.sort((a, b) => b.price - a.price)
-    } else if (sort === "newest") {
-        filteredProducts.sort((a, b) => b.created_at - a.created_at)
-    }
+    } 
 
 
     return (
@@ -74,7 +72,6 @@ const AllProducts = () => {
                         className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
                     >
                         <option value="">Sort By</option>
-                        <option value="newest">Newest</option>
                         <option value="low-high">Price: Low - High</option>
                         <option value="high-low">Price: High - Low</option>
                     </select>
