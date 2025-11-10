@@ -1,18 +1,22 @@
 import React, { use, useEffect, useState } from 'react'
 import { AuthContext } from '../../Provider/AuthProvider'
 import { toast } from 'react-toastify'
+import ExportedProductCard from '../../components/ExportedProductCard/ExportedProductCard'
 
 const MyExport = () => {
 
     const { user } = use(AuthContext)
     const [exports, setExports] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (user?.email) {
+            setLoading(true)
             fetch(`http://localhost:3000/products?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setExports(data)
+                    setLoading(false)
                 })
                 .catch(err => {
                     toast.error(err.message)
@@ -26,43 +30,15 @@ const MyExport = () => {
                 My Exported Products
             </h1>
 
-            {exports.length === 0 ? (
-                <p className="text-center text-gray-500">You haven’t exported any products yet.</p>
+            {loading ?
+                <div className="flex justify-center items-center h-40">
+                    <p className="text-gray-500 text-lg animate-pulse">Loading my imports...</p>
+                </div> : exports.length === 0 ? (
+                <p className="text-gray-500 text-lg">You haven’t exported any products yet.</p>
             ) : (
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {exports.map(product => (
-                        <div
-                            key={product._id}
-                            className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-base-300"
-                        >
-                            <figure className="px-4 pt-4">
-                                <img
-                                    src={product.product_image}
-                                    alt={product.product_name}
-                                    className="rounded-xl h-52 w-full object-cover"
-                                />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title text-info">{product.product_name}</h2>
-                                <p className="text-sm text-gray-500 mb-2">{product.origin_country}</p>
-
-                                <div className="flex justify-between items-center text-sm mb-2">
-                                    <span className="font-semibold text-success">Price: ${product.price}</span>
-                                    <span className="text-yellow-500 flex items-center">
-                                        ⭐ {product.rating}
-                                    </span>
-                                </div>
-
-                                <p className="text-sm mb-3">
-                                    Available: <span className="font-semibold">{product.available_quantity}</span>
-                                </p>
-
-                                <div className="card-actions justify-between">
-                                    <button className="btn btn-soft btn-info ">Update</button>
-                                    <button className="btn btn-soft btn-error ">Delete</button>
-                                </div>
-                            </div>
-                        </div>
+                        <ExportedProductCard key={product?._id} product={product}></ExportedProductCard>
                     ))}
                 </div>
             )}
