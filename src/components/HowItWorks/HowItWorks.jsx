@@ -10,25 +10,25 @@ const HowItWorks = () => {
                 </p>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+                    <div className="bg-base-100 p-6 rounded-2xl shadow hover:shadow-lg border transition">
                         <div className="text-blue-600 text-4xl mb-4">🌍</div>
                         <h3 className="font-semibold text-lg mb-2">Global Tracking</h3>
                         <p className="text-gray-500">Monitor every shipment in real time and stay updated with accurate location data.</p>
                     </div>
 
-                    <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+                    <div className="bg-base-100 p-6 rounded-2xl shadow hover:shadow-lg border transition">
                         <div className="text-blue-600 text-4xl mb-4">🧾</div>
                         <h3 className="font-semibold text-lg mb-2">Smart Documentation</h3>
                         <p className="text-gray-500">Manage all trade papers, invoices, and customs docs from one secure dashboard.</p>
                     </div>
 
-                    <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+                    <div className="bg-base-100 p-6 rounded-2xl shadow hover:shadow-lg border transition">
                         <div className="text-blue-600 text-4xl mb-4">⚡</div>
                         <h3 className="font-semibold text-lg mb-2">Instant Communication</h3>
                         <p className="text-gray-500">Keep importers, exporters, and logistics teams in perfect sync with real-time messaging.</p>
                     </div>
 
-                    <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+                    <div className="bg-base-100 p-6 rounded-2xl shadow hover:shadow-lg border transition">
                         <div className="text-blue-600 text-4xl mb-4">📈</div>
                         <h3 className="font-semibold text-lg mb-2">Trade Analytics</h3>
                         <p className="text-gray-500">Track performance, analyze trends, and make smarter trade decisions faster.</p>
