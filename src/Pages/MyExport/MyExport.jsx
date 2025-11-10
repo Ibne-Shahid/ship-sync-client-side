@@ -32,7 +32,7 @@ const MyExport = () => {
 
             {loading ?
                 <div className="flex justify-center items-center h-40">
-                    <p className="text-gray-500 text-lg animate-pulse">Loading my imports...</p>
+                    <p className="text-gray-500 text-lg animate-pulse">Loading my exports...</p>
                 </div> : exports.length === 0 ? (
                 <p className="text-gray-500 text-lg">You haven’t exported any products yet.</p>
             ) : (
