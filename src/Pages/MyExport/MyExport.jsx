@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { use, useEffect, useRef, useState } from 'react'
 import { AuthContext } from '../../Provider/AuthProvider'
 import { toast } from 'react-toastify'
 import ExportedProductCard from '../../components/ExportedProductCard/ExportedProductCard'
@@ -9,6 +9,11 @@ const MyExport = () => {
     const { user } = use(AuthContext)
     const [exports, setExports] = useState([])
     const [loading, setLoading] = useState(true)
+    const importModalRef = useRef(null)
+
+    const handleModal = () => {
+        importModalRef.current.showModal()
+    }
 
     useEffect(() => {
         if (user?.email) {
@@ -76,7 +81,7 @@ const MyExport = () => {
                 ) : (
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {exports.map(product => (
-                            <ExportedProductCard key={product?._id} product={product} handleRemoveExport={handleRemoveExport}></ExportedProductCard>
+                            <ExportedProductCard key={product?._id} product={product} handleRemoveExport={handleRemoveExport} importModalRef={importModalRef} handleModal={handleModal}></ExportedProductCard>
                         ))}
                     </div>
                 )}
