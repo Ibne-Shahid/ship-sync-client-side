@@ -1,12 +1,30 @@
-# React + Vite
+# ShipSync
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ShipSync** is a modern Import-Export Hub web application designed to streamline global trade management. It helps users track imported and exported products, manage inventory, and view detailed product insights with a clean and responsive interface.
 
-Currently, two official plugins are available:
+## Live Site URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Visit ShipSync Live](https://resilient-vacherin-95b4db.netlify.app/)  
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Product Browsing:** Explore a wide range of imported and exported products with detailed information including price, origin country, and availability.  
+- **Smart Inventory Management:** View and manage available quantities and ratings for each product in real time.  
+- **Modern Tech Stack:** Built with React, Tailwind CSS, Firebase, and Express.js for a fast and secure experience.  
+- **User Authentication:** Secure login and registration using Firebase authentication.  
+- **Server Integration:** MongoDB-powered backend with Express for storing and retrieving product data efficiently.  
+
+## Technologies Used
+
+### Client Side
+- React 19  
+- Tailwind CSS 4  
+- React Router 7  
+- Firebase 12  
+- React Toastify & SweetAlert2 for notifications and alerts  
+
+### Server Side
+- Node.js & Express.js  
+- MongoDB for database  
+- Dotenv for environment configuration  
+- CORS for secure API communication 
