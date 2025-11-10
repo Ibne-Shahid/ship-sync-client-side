@@ -9,6 +9,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRout from "../Provider/PrivateRout";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
+import NotFound from "../Pages/NotFound/NotFound";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
                 element: <PrivateRout><ProductDetails></ProductDetails></PrivateRout>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <NotFound></NotFound>
     }
 ])
 
