@@ -81,6 +81,33 @@
 
 ---
 
+## 💻 Local Setup
+
+Follow these steps to run **ShipSync** locally:
+
+1. **Clone the repository** </br>
+git clone (your-repo-url) </br>
+cd b12a10-shipSync-client-side
+
+2. **Install dependencies and start development server** </br>
+npm install
+
+3. **Create .env file (if needed) and add your Firebase credentials** </br>
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+4. **Run the development server** </br>
+npm run dev
+
+5. **Open in browser** </br>
+Visit http://localhost:5173 (or the port Vite shows) to see the app.
+
+---
+
 ## 👨‍💻 Author
 Developed by **Anas Bin Shahid**  
 Passionate about crafting modern, performance-focused, and user-friendly web applications.
