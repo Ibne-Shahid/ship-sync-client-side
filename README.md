@@ -43,41 +43,7 @@
 **Tools / Dev Dependencies:**  
 - Vite  
 - DaisyUI  
-- ESLint & Plugins (`@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`)  
-- TypeScript Types (`@types/react`, `@types/react-dom`)  
-
----
-
-## 📦 Dependencies
-
-### **Production Dependencies (`dependencies`)**
-- @tailwindcss/vite  
-- firebase  
-- react  
-- react-dom  
-- react-icons  
-- react-router  
-- react-toastify  
-- sweetalert2  
-- tailwindcss  
-
-### **Development Dependencies (`devDependencies`)**
-- @eslint/js  
-- @types/react  
-- @types/react-dom  
-- @vitejs/plugin-react  
-- daisyui  
-- eslint  
-- eslint-plugin-react-hooks  
-- eslint-plugin-react-refresh  
-- globals  
-- vite  
-
-### **Backend Dependencies**
-- cors  
-- dotenv  
-- express  
-- mongodb  
+- ESLint & Plugins (`@eslint/js`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`)
 
 ---
 
@@ -87,7 +53,7 @@ Follow these steps to run **ShipSync** locally:
 
 1. **Clone the repository** </br>
 git clone (your-repo-url) </br>
-cd b12a10-shipSync-client-side
+cd shipSync-client-side
 
 2. **Install dependencies and start development server** </br>
 npm install
