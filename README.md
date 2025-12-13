@@ -53,7 +53,7 @@ Follow these steps to run **ShipSync** locally:
 
 1. **Clone the repository** </br>
 git clone (your-repo-url) </br>
-cd shipSync-client-side
+cd ship-sync-client-side
 
 2. **Install dependencies and start development server** </br>
 npm install
