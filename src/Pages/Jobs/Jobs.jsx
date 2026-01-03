@@ -301,13 +301,6 @@ const Jobs = () => {
                               <span className="badge badge-outline">{job.category}</span>
                             </div>
                           </div>
-                          
-                          <div className="mt-4 lg:mt-0 lg:ml-6">
-                            <button className="btn btn-accent btn-sm">
-                              <Heart className="w-4 h-4 mr-2" />
-                              Save Job
-                            </button>
-                          </div>
                         </div>
                       </div>
                     </div>
