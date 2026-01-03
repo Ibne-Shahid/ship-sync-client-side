@@ -73,8 +73,8 @@ const AllProducts = () => {
                         className="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
                     >
                         <option value="">Sort By</option>
-                        <option value="low-high">Price: Low - High</option>
-                        <option value="high-low">Price: High - Low</option>
+                        <option className='text-gray-600' value="low-high">Price: Low - High</option>
+                        <option className='text-gray-600' value="high-low">Price: High - Low</option>
                     </select>
                 </div>
 
