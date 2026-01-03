@@ -16,6 +16,7 @@ import MyProfile from "../Pages/MyProfile/MyProfile";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import InboxPage from "../Pages/Inbox/InboxPage";
 import Contact from "../Pages/Contact/Contact";
+import Jobs from "../Pages/Jobs/Jobs";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: '/notifications',
                 element: <PrivateRout><InboxPage></InboxPage></PrivateRout>
+            },
+            {
+                path: '/jobs',
+                element: <Jobs></Jobs>
             },
             {
                 path: '/contactUs',
