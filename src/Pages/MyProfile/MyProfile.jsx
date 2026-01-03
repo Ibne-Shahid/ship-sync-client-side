@@ -210,48 +210,6 @@ const MyProfile = () => {
                                             <p className="text-lg font-medium">{userData.email}</p>
                                             <p className="text-sm text-base-content/60">Email cannot be changed</p>
                                         </div>
-
-                                        <div className="form-control">
-                                            <label className="label">
-                                                <span className="label-text font-semibold flex items-center">
-                                                    <FaPhone className="mr-2" />
-                                                    Phone Number
-                                                </span>
-                                            </label>
-                                            {isEditing ? (
-                                                <input
-                                                    type="tel"
-                                                    name="phone"
-                                                    value={userData.phone}
-                                                    onChange={handleInputChange}
-                                                    className="input input-bordered"
-                                                    placeholder="Enter phone number"
-                                                />
-                                            ) : (
-                                                <p className="text-lg font-medium">{userData.phone || 'Not set'}</p>
-                                            )}
-                                        </div>
-
-                                        <div className="form-control">
-                                            <label className="label">
-                                                <span className="label-text font-semibold flex items-center">
-                                                    <FaMapMarkerAlt className="mr-2" />
-                                                    Address
-                                                </span>
-                                            </label>
-                                            {isEditing ? (
-                                                <textarea
-                                                    name="address"
-                                                    value={userData.address}
-                                                    onChange={handleInputChange}
-                                                    className="textarea textarea-bordered"
-                                                    placeholder="Enter your address"
-                                                    rows="3"
-                                                />
-                                            ) : (
-                                                <p className="text-lg font-medium">{userData.address || 'Not set'}</p>
-                                            )}
-                                        </div>
                                     </div>
                                 </div>
                             </div>
