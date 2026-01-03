@@ -15,6 +15,7 @@ import DashboardHome from "../Pages/DashboardHome/DashboardHome";
 import MyProfile from "../Pages/MyProfile/MyProfile";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import InboxPage from "../Pages/Inbox/InboxPage";
+import Contact from "../Pages/Contact/Contact";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path: '/notifications',
                 element: <PrivateRout><InboxPage></InboxPage></PrivateRout>
+            },
+            {
+                path: '/contactUs',
+                element: <Contact></Contact>
             },
             {
                 path: '/login',
