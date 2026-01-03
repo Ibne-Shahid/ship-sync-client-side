@@ -4,7 +4,7 @@ const Reviews = () => {
     return (
         <div className='py-10 px-5 md:px-14 bg-base-100'>
             <div className='text-center'>
-                <h2 className="text-4xl font-bold mb-4 text-info">Trusted by Global Traders</h2>
+                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-info via-accent to-success bg-clip-text text-transparent">Trusted by Global Traders</h2>
                 <p className="max-w-2xl mx-auto mb-12 text-gray-600">
                     From small exporters to global logistics brands — ShipSync keeps everyone connected and confident in every shipment.
                 </p>

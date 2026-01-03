@@ -4,7 +4,7 @@ const HowItWorks = () => {
     return (
         <div className='py-10 px-5 md:px-14'>
             <div className="max-w-6xl mx-auto px-6 text-center">
-                <h2 className="text-4xl font-bold text-info mb-4">Sync Every Step of Your Trade Journey</h2>
+                <h2 className="text-4xl font-bold bg-gradient-to-r from-info via-accent to-success bg-clip-text text-transparent mb-4">Sync Every Step of Your Trade Journey</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto mb-12">
                     From shipment tracking to smart documentation — ShipSync connects your import, export, and logistics operations in one seamless platform.
                 </p>

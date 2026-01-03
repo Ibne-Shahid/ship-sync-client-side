@@ -8,7 +8,7 @@ const LatestProducts = ({productsPromise}) => {
 
   return (
     <div className='py-10 px-5 md:px-14'>
-        <h1 className='font-bold text-4xl text-center text-info'>Latest Products</h1>
+        <h1 className='font-bold text-4xl text-center bg-gradient-to-r from-info via-accent to-success bg-clip-text text-transparent'>Latest Products</h1>
         <div className='mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {products.map((product)=><Card key={product._id} product={product}></Card>)}
         </div>
